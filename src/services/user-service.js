@@ -6,15 +6,21 @@ const assertId = BadRequest.makeAssert('No id given')
 
 // Prevent overposting.
 const pickProps = data =>
-  pick(data, ['email', 'password', 'username', 'roles', 'push_token'])
+  pick(data, [
+    'email',
+    'password',
+    'username',
+    'roles',
+    'push_token',
+    'phone_number'
+  ])
 
 /**
  * User Service.
  */
 export default class UserService {
-  constructor(userStore, tripStore, notificationStore) {
+  constructor(userStore, notificationStore) {
     this.store = userStore
-    this.tripStore = tripStore
     this.notificationStore = notificationStore
   }
 
